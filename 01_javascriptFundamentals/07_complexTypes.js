@@ -60,6 +60,11 @@ const users2= ["Ishwor", "yaman", "Gaman"];
 const tatalUsers = users2.length;
 const firstUser = users2[0];
 
+// #Assignmen =>Write a function that takes an array of numbers as input, and returns a new array with only even values. Read about filter in JS
+let arr1=[1,2,3,4,5];
+const result=arr1.filter((arr)=>arr%2===0);
+console.log("Assignment of Array, result="+result)
+
 //3. Array of objects
 const users = [{
 		name: "Harkirat",
@@ -83,3 +88,4 @@ const userList={
     }
 }
 console.log(`User district ${userList.address.district}`)
+
