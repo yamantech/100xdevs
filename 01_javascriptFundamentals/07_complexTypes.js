@@ -12,6 +12,38 @@ function greet(user){
 greet(user1)
 
 // Assignment #2
+let Users=[  
+    {
+    Name:"Ishwor Acharya",
+    age:23,
+    gender:"Male"
+},
+    {
+    Name:" Bhumika Acharya",
+    age:18,
+    gender:"Female"
+},
+    {
+    Name:"unknown",
+    age:17,
+    gender:"random"
+},
+  
+]
+function assignment2(user){
+    if(user.gender == "Male"){
+        console.log(`Hi Mr ${user.Name}`);
+    }
+    else if(user.gender=="Female"){
+        console.log(`Hi Mrs ${user.Name}`)
+    }
+    else{
+        console.log(`Hi ${user.Name}`)
+    }}
+assignment2(Users[0]);
+assignment2(Users[1]);
+assignment2(Users[2]);
+// Assignment #3
 function greet(user){
     console.log(` ${user.name} age is ${user.age} `);
     if(user.age>17){

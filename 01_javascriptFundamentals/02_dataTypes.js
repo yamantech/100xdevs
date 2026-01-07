@@ -29,5 +29,11 @@
 // Non primitive type (object,array,function)
  
  // a.Object
-    let person
+   let user={
+      name:"Ishwor",
+      age:23
+   }
+   console.log("Name:"+user.name)
+ // b. array 
+   let users=["Ishwor","yaman","Bhumika"]
 
