@@ -71,13 +71,19 @@ const users = [{
 		age: 21
 	}, {
 		name: "raman",
-		age: 22
+		age: 9
 	}
 ]
 const fisrtUserName=users[0].name
 const firstUserAge=users[0].age
 console.log(fisrtUserName);
 console.log(firstUserAge);
+
+// Assignment Write a function that takes an array of users as inputs and returns only the users who are more than 18 years old
+
+const adults=users.filter((user)=>user.age>18);
+console.log("Assignment Array of object, adults:", adults);
+
 
 //4.Object of Objects
 const userList={
