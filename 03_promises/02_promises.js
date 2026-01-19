@@ -38,26 +38,50 @@ const read=fs.readFile("try.txt","utf-8").then((err,data)=>{
 
 */
 
-//Example of promise
+/*************************************************************************************** */
+// understanding promise
+// writing simple Promise class
 
-/*
-function random(resolve){//resolve is also function
-     setTimeout(resolve,3000)
+/*  
+class Promise1{
+    constructor(fun){
+       this.fun=fun;
+       this.fun(()=>{
+        this.resolve()
+       })
+    }
+    then(callback){
+        this.resolve=callback;
+    }
 }
-let p=new Promise(random);//suppose to return u something eventually
 
-//using eventual value retured by the promise
+
+function readTheFile(resolve){
+    console.log("readTheFile called");
+    setTimeout(function(){
+        console.log("callback based setTimeout completed");
+        resolve();
+    },3000)
+}
+
+function setTimeoutPromisified(){
+    return new Promise1(readTheFile);
+}
 function callback(){
-    console.log("Promise fulfilled")
+    console.log("Callback function =resolve function")
 }
-p.then(callback);
+const p=setTimeoutPromisified();
+p.then(callback)
+
+ */
 
 
-*/
 
 //-----------------------------------------------------------------------------------------
 //Task=> promisified version for fs.readFile,fs.WriteFile,cleanFile
-/*
+
+//fs.readFile 
+/*  (basic way)
 
 const fs=require("fs");
 function FileRead(resolve){
@@ -73,40 +97,86 @@ p.then(callback);
 
 */
 
+/*  (best way)
+const fs=require("fs");
+function readFilePromisified(filename){
+    return new Promise(resolve=>
+        fs.readFile(filename,'utf-8',(err,data)=>{
+            if(err){
+                console.log(err)
+        }
+    else{
+        console.log(data);
+        resolve();
+    }})
+    )
+}
+function callback(){
+    console.log("This is after promise fulfilled")
+}
+readFilePromisified('try.txt').then(callback)
+
+*/
+
+//fs.writeFile
+
+/*  (my version )
+const fs=require('fs');
+// fs.writeFile('file',data,filetype,function)
+function WriteFile(resolve){
+    let text="Ishwor Acharya" 
+    fs.writeFile('try.txt',text,'utf-8',(err,data)=>{
+        resolve();
+    })
+}
+let p=new Promise(WriteFile);
+function callback(){
+    console.log("File written succesfully!!!");
+}
+p.then(callback);
+
+*/
+
+// chatgpt version(best apporach to do)
+/*
+function writeFilePromisified(filename, text) {
+    return new Promise((resolve, reject) => {
+        fs.writeFile(filename, text, 'utf-8', err => {
+            if (err) reject(err);
+            else resolve("done");
+        });
+    });
+}
+
+writeFilePromisified('try.txt', 'Ishwor Acharya')
+    .then(console.log)
+    .catch(console.error);
+
+    
+
+*/
+// Appling chatgpt concept:
+/* 
+const fs = require("fs");
+function writeFilePromisified(filename, text) {
+    return new Promise(resolve => {
+        console.log("This message is during promise");
+        fs.writeFile(filename, text, 'utf-8', (err) => {
+            if (err) {
+                console.log(err);
+            }
+            else{
+                console.log("File readed succesfully!!!")
+                resolve();
+            }
+        })
+    })
+}
+function callback() {
+    console.log("This message is after promise is fullfield");
+}
+
+writeFilePromisified.then(callback);
 
 
-// understanding promise
-// writing simple Promise class
-
-/*   */
-// class Promise1{
-//     constructor(fun){
-//        this.fun=fun;
-//        this.fun(()=>{
-//         this.resolve()
-//        })
-//     }
-//     then(callback){
-//         this.resolve=callback;
-//     }
-// }
-
-
-// function readTheFile(resolve){
-//     console.log("readTheFile called");
-//     setTimeout(function(){
-//         console.log("callback based setTimeout completed");
-//         resolve();
-//     },3000)
-// }
-
-// function setTimeoutPromisified(){
-//     return new Promise1(readTheFile);
-// }
-// function callback(){
-//     console.log("Callback function =resolve function")
-// }
-// const p=setTimeoutPromisified();
-// p.then(callback)
-
-
+*/
