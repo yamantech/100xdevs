@@ -22,3 +22,5 @@ function canVote(age){
 }
 let user1=canVote(17);
 console.log(user1);
+
+

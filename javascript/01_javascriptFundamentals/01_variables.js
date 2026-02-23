@@ -8,6 +8,8 @@
 // console.log(`isMarried: ${isMarried}`);
 
 
+ 
+
 //Example 1  Var (function scope)
 /*
 function test(){
@@ -27,4 +29,11 @@ function test(){
     console.log(Name);// error:ReferenceError: Name is not defined
 }
 test();
+*/
+
+// 
+/*
+var=can be reassigned and redecleared (function scoped)
+let = can be reassingned but never redecleared (block scoped)
+const= can't be reassigned and redecleared(block scoped)
 */

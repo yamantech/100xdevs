@@ -1,10 +1,10 @@
+
 // 3. Operators
 /*
 Assignment Operator (=) assigns a value to a variable.
 
-Addition Operator (+) adds numeric values or concatenates strings.
+Arithmetic Operator (+,-,*) adds numeric values or concatenates strings.
 
-Multiplication Operator (*) multiplies numeric values.
 
 Comparison Operator (>) compares two values and returns a boolean (true or false).
 */
@@ -61,3 +61,42 @@ console.log(!a);
 console.log((2>1)?'it is true':'its false');
 // is 2 greater than 1  ? if true return true  else return false
 console.log((17>-18)?'It is ture':'its false');
+
+
+
+
+//1. arithematic operators
+a=1, b=2;
+console.log(a+b);
+console.log(a*b);
+console.log(a-b);
+console.log(a%b);
+
+//2.logical operators
+if(2)
+//ternary operators
+
+//comparision operators
+if(3>2){
+    console.log("True...")
+}
+if(3<2){
+    console.log("False...")
+}
+if(3<=3){
+    console.log("Truee....")
+}
+if(2>=1){
+    console.log("Truee....")
+}
+console.log(2=="2");
+console.log(2==="2")
+
+
+//assignment operators
+a+=b;
+
+//ternary opertors
+console.log(((2>1))?"true":"false")
+
+

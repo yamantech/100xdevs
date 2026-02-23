@@ -50,3 +50,17 @@ switch(Case){
         console.log("It's noting!!!")
 }
     
+
+//trying switch statement
+const pet="dog";
+switch(pet){
+    case "monkey":
+        console.log("Pet is not a dog");
+        break;
+    case "elephant":
+        console.log("pet is not elephant");
+        break;
+    case "dog":
+        console.log("pet is definately dog");
+        break;
+}
